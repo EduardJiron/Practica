@@ -206,7 +206,8 @@ if(isset($varMsj))
         <th>Nombre</th>
         <th>Responsable</th>
         <th>Descuento contribucion</th>
-        <th>Estado </th>
+        <th>opciones</th>
+      
         
     </tr>
 </thead>
@@ -229,7 +230,7 @@ if(isset($varMsj))
       
         <td>   <?php echo $r->__GET("responsable"); ?></td>
         <td>   <?php echo $r->__GET("desc_contribucion"); ?></td>
-        <td>   <?php echo $r->__GET("estado"); ?></td>
+       
 
        
 

@@ -23,7 +23,6 @@ class DtParroquia extends conexion
                     foreach($stm->fetchAll(PDO::FETCH_OBJ) as $r)
                     {
                             $par= new Parroquia();
-                            $par->__SET('idParroquia', $r->idParroquia);
                             $par->__SET('nombre', $r->nombre);
                             $par->__SET('direccion', $r->direccion);
                             $par->__SET('telefono', $r->telefono);

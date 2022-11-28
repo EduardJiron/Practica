@@ -8,6 +8,15 @@ include 'entidades/Rol.php';
 $dt = new DtRol();
 $par= new Rol();
 
+$varIdU = 0;
+if(isset($varIdU))
+{ 
+  $varIdU = $_GET['editU']; //RECUPERAMOS EL VALOR DE NUESTRA VARIABLE PARA EDITAR EL USUARIO
+}
+
+//OBTENEMOS LOS DATOS DEL USUARIO PARA SER EDITADO
+$par = $dt->getRolrByID($varIdU);
+
 
 
 
@@ -165,24 +174,13 @@ $par= new Rol();
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Editar Rol</h3></div>
                                     <div class="card-body">
-                                        <form>
+                                        <form  action="./negocio/nerol.php" method="POST" >
+
                                         <div class="row mb-3">
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3 mb-md-0">
                                                       
-                                                    <select class="form-select"  style ="width: 95%;"aria-label="Default select example">
-                                                    <option selected>Selecionar Rol</option>
-                                                    
-                                                    <?php foreach ($dt->listRol() as $r):
-                                                    ?>
-                                   
-                                        <option value="2"><?php echo $r->__GET("id_rol"); ?></option>
-                                    
-                                   
-
-                                                    <?php
-                                                        endforeach;
-                                                        ?>
+                                                
                                                   
                                                     </select>
                                                     </div>
@@ -191,14 +189,16 @@ $par= new Rol();
                                         <div class="row mb-3">
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3 mb-md-0">
-                                                    <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" />
-                                                        <label for="inputFirstName">ID del Rol</label>
+                                                    <input  value="<?php echo $varIdU ?>" class="form-control" id="id_rol" name="id_rol" type="hidden" placeholder="Enter your first name" />
+                                                   
+                                                    
+                                                    <label for="inputFirstName">ID del Rol</label>
                                                    
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-floating">
-                                                    <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" />
+                                                    <input class="form-control" id="rol_descripcion" name="rol_descripcion" type="text" placeholder="Enter your first name" />
                                                         <label for="inputFirstName">Descripción</label>
                                                     </div>
                                                 </div>
@@ -208,7 +208,7 @@ $par= new Rol();
                                             
                                             <div class="form-floating mb-3" style="width: 510px; left: 15px;">                                
                                             <div class="mt-4 mb-0">
-                                                <div class="d-grid"><a class="btn btn-primary btn-block" href="tblparroquia.php">Editar Rol</a></div>
+                                            <input class="btn btn-primary" type="submit" value="Guardar"/>
                                             </div>
                                         </form>
                                     </div>
@@ -229,5 +229,27 @@ $par= new Rol();
         <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
+
+        <script>
+        ////// FUNCION PARA CARGAR LOS VALORES EN LOS CONTROLES
+        function setValores()
+        {
+            $("#id_rol").css("background-color", "#E3E4E5");
+            $("#id_rol").val("<?php echo $id_rol; ?>");
+
+            $("#rol_descripcion").val("<?php echo $par->__GET('rol_descripcion') ?>");
+            $("#idU").val("<?php echo $par->__GET('id_rol') ?>");
+           
+        }
+  
+        $(document).ready(function ()
+        {
+            // CARGAMOS LOS VALORES EN LOS CONTROLES //
+            setValores();
+        });
+
+</script>
+
+
     </body>
 </html>

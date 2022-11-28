@@ -23,15 +23,12 @@ class DtArqueoCajaDet extends conexion
                     foreach($stm->fetchAll(PDO::FETCH_OBJ) as $r)
                     {
                         $arq= new ArqueoCajaDet(); 
-                        $arq ->_SET('id_Arqueo_Det', $r->id_Arqueo_Det); 
-                        $arq ->_SET('id_ArqueoCaja', $r->id_ArqueoCaja);
-                        $arq ->_SET('id_Moneda', $r->id_Moneda);    
-                        $arq ->_SET('id_Denominacion', $r->id_Denominacion);
-                        $arq ->_SET('cantidad', $r->cantidad);
-                        $arq ->_SET('subtotal', $r->subtotal);
+                     
+                        $arq ->__SET('cantidad', $r->cantidad);
 
+                      
 
-
+                    
 
 
                             $result[]=$arq;

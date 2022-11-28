@@ -215,21 +215,20 @@ if(isset($varMsj))
 
     
 
-    foreach ($dt->listArqueoCajadet() as $r):
+    foreach ($dt->listArqueoCajaDet() as $r):
 
     ?>
 
     <tr>
         <td>
-    <?php echo $r->__GET("idArqueoCaja_Det"); ?>
+        <td>   <?php echo $r->__GET("cantidad"); ?></td>
         </td>
         <td>
-    <?php echo $r->__GET("cantidad"); ?>
+    
     
         
     </td>
-      
-        <td>   <?php echo $r->__GET("subtotal"); ?></td>
+     
        
 
        

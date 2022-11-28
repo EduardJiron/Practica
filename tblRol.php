@@ -229,7 +229,7 @@ if(isset($varMsj))
                                                 <a href="#" target="_blank" title="Visualizar los roles ">
                                                     <i class="fa-solid fa-eye"></i>
                                                 </a>&nbsp;
-                                                <a href="editarRol.php" target="_blank" title="Modificar los roles ">
+                                                <a href="editarRol.php?editU=<?php echo $r->__GET('id_rol');  ?>" target="_blank" title="Modificar los datos de un usuario">
                                                     <i class="fa-solid fa-user-pen"></i>
                                                 </a>&nbsp;
                                                 <a href="#" target="_blank" title="Dar de baja a un rol">
@@ -237,6 +237,8 @@ if(isset($varMsj))
                                                 </a>
                                             </td>
                                             
+
+                                           
                                             <?php
 
 endforeach;

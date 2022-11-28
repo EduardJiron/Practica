@@ -4,7 +4,7 @@ class Rol{
 
 private $id_rol;
 private $rol_descripcion;
-private $estado = 1;
+private $estado ;
 
 
 public function __GET($k){return $this->$k;}
